@@ -1,5 +1,5 @@
 ### EX4 Implementation of Cluster and Visitor Segmentation for Navigation patterns
-### DATE: 
+### DATE: 9/3/24
 ### AIM: To implement Cluster and Visitor Segmentation for Navigation patterns in Python.
 ### Description:
 <div align= "justify">Cluster visitor segmentation refers to the process of grouping or categorizing visitors to a website, 
@@ -14,28 +14,44 @@
 4) Visualize the result using matplotlib.
 
 ### Program:
-```python
-# Visitor segmentation based on characteristics
+```
+Name: D.R.Vinuthna
+Reg No:212221230017
+```
+```
 # read the data
-/*WRITE YOUR CODE HERE
+import pandas as pd
+visitor_df = pd.read_csv('/content/clustervisitor.csv')
 
 # Perform segmentation based on characteristics (e.g., age groups)
-/*WRITE YOUR CODE HERE
+age_groups = {
+    'Young': visitor_df['Age'] <= 30,
+    'Middle-aged': (visitor_df['Age'] > 30) & (visitor_df['Age'] <= 50),
+    'Elderly': visitor_df['Age'] > 50
+}
+
+for group, condition in age_groups.items():  
+    visitors_in_group = visitor_df[condition] 
+    print(f"Visitors in {group} age group:")
+    print(visitors_in_group)
+
 
 ```
 ### Output:
+![image](https://github.com/VINUTHNA-2004/WDM_EXP4/assets/95067307/ee500aa8-a221-407a-8338-c452daa37e17)
 
 ### Visualization:
-```python
+```
 # Create a list to store counts of visitors in each age group
-/*WRITE YOUR CODE HERE
+visitor_counts=[]
 
 # Count visitors in each age group
-/*WRITE YOUR CODE HERE
+for group,condition in age_groups.items():
+  visitors_in_group=visitor_df[condition]
+  visitor_counts.append(len(visitors_in_group))
     
 # Define age group labels and plot a bar chart
-/*WRITE YOUR CODE HERE
-
+age_group_labels=list(age_groups.keys())
 plt.figure(figsize=(8, 6))
 plt.bar(age_group_labels, visitor_counts, color='skyblue')
 plt.xlabel('Age Groups')
@@ -44,6 +60,8 @@ plt.title('Visitor Distribution Across Age Groups')
 plt.show()
 ```
 ### Output:
+![image](https://github.com/VINUTHNA-2004/WDM_EXP4/assets/95067307/8ea4b788-687f-4e0b-be43-349ccf1b6973)
 
 
 ### Result:
+Thus the Implementation of Cluster and Visitor Segmentation for Navigation patterns is executed successfully.
